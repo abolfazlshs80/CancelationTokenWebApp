@@ -7,13 +7,15 @@ namespace CancelationTokenWebApp.Controllers
     public class HomeController(ILogger<HomeController> _logger) : Controller
     {
 
+
         public async Task<IActionResult> Index(CancellationToken token)
         {
-         //   await RunWithCancellationTokenAndUseTaskMethod(token);
-            await RunWithCancellationTokenAndUseWithOutTaskMethod(token);
+            //   await RunWithCancellationTokenAndUseTaskMethod(token);
+            //    await RunWithCancellationTokenAndUseWithOutTaskMethod(token);
 
+           // await MyTimer(token);
             _logger.LogInformation("View index Showed");
-            return View("Privacy");
+            return View();
         }
 
 
@@ -37,7 +39,7 @@ namespace CancelationTokenWebApp.Controllers
             {
                 token.ThrowIfCancellationRequested();
                 Thread.Sleep(1000);
-             
+
                 _logger.LogCritical("Action index Running " + i);
             }
             _logger.LogInformation("Action index End");

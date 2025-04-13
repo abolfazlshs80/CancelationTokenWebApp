@@ -1,3 +1,5 @@
+using CancelationTokenWebApp.Service;
+
 namespace CancelationTokenWebApp
 {
     public class Program
@@ -8,7 +10,7 @@ namespace CancelationTokenWebApp
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-
+            builder.Services.AddHostedService<PeriodicBackgroundService>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
